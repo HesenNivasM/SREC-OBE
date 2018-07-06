@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<title>
+		Test Mark-Entry
+	</title>
+<link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+        
+
+</head>
+    <body  style="background-color: #e9e2e1">
+    	<nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+ 
+    <div class="container">
+<div class="form-group">
+    &nbsp;
+    </div>
+    <h2 class="text-center">TEST 1</h2>
+    <h2 class="text-center">Internal Test Analysis</h2>
+
+         <form id="qformat">
+         	<div class="form-group">
+    &nbsp;
+    </div>
+    <div class="alert alert-dark">
+         	<div class="text-center">
+    <label id="main" ><h5>QUESTION FORMAT </h5></label><br>
+    <br>
+</div>
+    <div class="form-row text-center">
+             <div class="form-group col-md-4" id="q1">
+    <label><h5>QN11</h5> </label><br><input type="radio" name="11" value="two">2 to be answered<br><input type="radio" name="11" value="one">1 to be answered
+             </div>
+             <div class="form-group col-md-4" id="q2">
+   <label><h5> QN12</h5> </label><br><input type="radio" name="12" value="two">2 to be answered<br><input type="radio" name="12" value="one">1 to be answered
+             </div>
+             <div class="form-group col-md-4" id="q3">
+    <label><h5>QN13</h5> </label><br><input type="radio" name="13" value="two">2 to be answered<br><input type="radio" name="13" value="one">1 to be answered
+             </div>
+             <br><br>
+    </div>
+    	<div class="form-group">
+    
+    </div>
+    <div class="text-center">
+    <input class="btn btn-primary" type="button" id="qnsubmit" onclick="cancel()" value="Submit"/>
+</div>
+</div>
+    </form>	
+    <br>
+
+        	<form id="Test01">
+        	<div id="highco">
+        	<div class="form-row">
+        <div class="form-group col-md-6">
+        	<div class="text-center">
+		  <label id="address"> <h5>HIGHEST CO ADDRESSED</h5> </label>
+		</div>
+		</div>
+		<div class="form-group col-md-6">
+
+			<div class="input-group mb-3">
+		  <input class="form-control" name="CO" type="number" max="7" min="1" id="CO" class="CO" title="Maximum CO given for the test" /><input type="button" onclick="fixco();" value="Submit" class="btn btn-primary" />
+		  </div>
+		</div>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+					<div class="text-center">	
+							<h5>TOTAL NUMBER OF STUDENTS</h5>
+					</div>
+			</div>
+			<div class="form-group col-md-6">
+					<div class="input-group mb-3">
+							<input type="number" id="nostud" name="nostud" class="form-control">
+							<input type="button" name="nostudclick" onclick="nostudfunc();" class="btn btn-primary" value="Submit">
+					</div>
+			</div>
+		</div>	
+		<br><br>
+
+		  	<div class="text-center">
+		   <label id="headd"><h5>ENTER THE CO's FOR EACH QUESTION</h5> </label><br><br>
+		   </div>
+		   <div class="form-row">
+		   <div class="form-group col-md-3 text-center" class = "QN"><label>Q.NO</label></div>
+		   <div class="form-group col-md-3 text-center" class="COs"><label>COURSE OUTCOME</label></div>
+		   <div class="form-group col-md-3 text-center" class ="CLs"><label>COGNITIVE LEVEL</label></div>
+		   <div class="form-group col-md-3 text-center" class ="MaxM"><label>MAXIMUM MARKS</label></div><br><br>
+			</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 1</label>
+            </div>
+            <div class="form-group col-md-3">
+            <select name="CO1" id="select1" class="form-control" class="COs" >
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		   </div>
+		<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 -->
+		 	<div class="form-group col-md-3">
+		    <select name="CL1" id="choose1" class="form-control"  class = "CLs" >
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		   </div>
+		   <div class="form-group col-md-3">
+		   <input name="MaxQ1" type="number" max="7" min="1" id="MaxQ1" class="form-control" class="MaxM" value="1"  />
+		   </div>
+		</div>
+		   <br>
+
+
+
+		  <div class="form-row">
+		  	<div class="form-group col-md-3 text-center">
+            <label class="q">QN 2</label>
+        	</div>
+        	<div class="form-group col-md-3">
+            <select name="CO2" id="select2" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+			</div>
+			<div class="form-group col-md-3">
+			<select name="CL2" id="choose2" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ2" type="number" max="7" min="1" id="MaxQ2" class="form-control" class="MaxM" value="1"/>
+		   <br>
+		</div>
+		</div>
+
+
+			<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 3</label>
+        	</div>
+        	<div class="form-group col-md-3">
+            <select name="CO3" id="select3" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		   	</div>
+		   	<div class="form-group col-md-3">
+		   	<select name="CL3" id="choose3" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+			</div>
+			<div class="form-group col-md-3">
+		   <input name="MaxQ3" type="number" max="7" min="1" id="MaxQ3" class="form-control" class="MaxM" value="1"/>
+		   <br>
+			</div>
+			</div>
+			<div class="form-row">
+			<div class="form-group col-md-3 text-center">	
+            <label class="q">QN 4</label>
+        	</div>
+        	<div class="form-group col-md-3">
+            <select name="CO4" id="select4" class="form-control"  class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		   	</div>
+		   	<div class="form-group col-md-3">
+		   <select name="CL4" id="choose4" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+			</div>
+			<div class="form-group col-md-3">
+		   <input name="MaxQ4" type="number" max="7" min="1" id="MaxQ4" class="form-control" class="MaxM" value="1"/>
+		   <br>
+		</div>
+		</div>
+			<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 5</label>
+        	</div>
+        	<div class="form-group col-md-3">
+            <select name="CO5" id="select5" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL5" id="choose5" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ5" type="number" max="7" min="1" id="MaxQ5" class="form-control" class="MaxM" value="1"/>
+		   <br>
+		</div>
+
+		</div>
+
+			<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+           <label class="q"> QN 6</label>
+			</div>
+			<div class="form-group col-md-3">
+           <select name="CO6" id="select6" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL6" id="choose6" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ6" type="number" max="7" min="1" id="MaxQ6" class="form-control" class="MaxM" value="3"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 7</label>
+        </div>
+        <div class="form-group col-md-3">
+        	<select name="CO7" id="select7" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL7" id="choose7" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ7" type="number" max="7" min="1" id="MaxQ7" class="form-control" class="MaxM" value="3"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 8</label>
+        	</div>
+        	<div class="form-group col-md-3">
+        	<select name="CO8" id="select8" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL8" id="choose8" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ8" type="number" max="7" min="1" id="MaxQ8" class="form-control" class="MaxM" value="3"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 9</label>
+        </div>
+        <div class="form-group col-md-3">
+        	<select name="CO9" id="select9" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL9" id="choose9" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ9" type="number" max="7" min="1" id="MaxQ9" class="form-control" class="MaxM" value="3"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 10</label>
+        </div>
+        <div class="form-group col-md-3">
+        	<select name="CO10" id="select10" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL10" id="choose10" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ10" type="number" max="7" min="1" id="MaxQ10" class="form-control" class="MaxM" value="3"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+           <label class="q"> QN 11A</label>
+       </div>
+       <div class="form-group col-md-3">
+       	<select name="CO11a" id="select11a" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL11a" id="choose11a" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ11a" type="number" max="7" min="1" id="MaxQ11a" class="form-control" class="MaxM" value="8"/>
+		   <br>
+		</div>
+	</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 11B</label>
+        </div>
+        <div class="form-group col-md-3">
+        	<select name="CO11b" id="select11b" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL11b" id="choose11b" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ11b" type="number" max="7" min="1" id="MaxQ11b" class="form-control" class="MaxM" value="7"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 12A</label>
+        </div>
+        <div class="form-group col-md-3">
+        	<select name="CO12a" id="select12a" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL12a" id="choose12a" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ12a" type="number" max="7" min="1" id="MaxQ12a" class="form-control" class="MaxM" value="8"/>
+		   <br>
+		</div>
+	</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+           <label class="q"> QN 12B</label>
+       </div>
+       <div class="form-group col-md-3">
+       	<select name="CO12b" id="select12b" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL12b" id="choose12b" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ12b" type="number" max="7" min="1" id="MaxQ12b" class="form-control" class="MaxM" value="7"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+           <label class="q"> QN 13A</label>
+       </div>
+       <div class="form-group col-md-3">
+       	<select name="CO13a" id="select13a" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL13a" id="choose13a" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <input name="MaxQ13a" type="number" max="7" min="1" id="MaxQ13a" class="form-control" class="MaxM" value="8"/>
+		   <br>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-3 text-center">
+            <label class="q">QN 13B</label>
+        </div>
+        <div class="form-group col-md-3">
+        	<select name="CO13b" id="select13b" class="form-control" class="COs">
+		   <option value="CO1">CO1</option>
+		   <option value="CO2">CO2</option>
+		   <option value="CO3">CO3</option>
+		   <option value="CO4">CO4</option>
+		   <option value="CO5">CO5</option>
+		   <option value="CO6">CO6</option>
+		   <option value="CO7">CO7</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+		   <select name="CL13b" id="choose13b" class="form-control" class = "CLs">
+		   <option value="CL1">1</option>
+		   <option value="CL2">2</option>
+		   <option value="CL3">3</option>
+		   <option value="CL4">4</option>
+		   <option value="CL5">5</option>
+		   <option value="CL6">6</option>
+		   </select>
+		</div>
+		<div class="form-group col-md-3">
+          <input name="MaxQ13b" type="number" max="7" min="1" id="MaxQ13b" class="form-control" class="MaxM" value="7"/><br>
+      </div>
+  </div>	<div class="text-center">
+                <a href='#'
+        onclick='selectthedownload()'
+    ><input type="button"value="Submit" onclick="show()" class="btn btn-primary" id="show1"/>
+</a><br></div>
+
+		   <br>
+        </form>
+        <form id="changable">
+            <br><br>
+<div id="up" class="alert alert-dark">
+<div class="form-row">
+	<div class="form-group col-md-6">
+            <label>ROLL NO</label> <input name="rollno" type="number" id="rollno" class="form-control" class="rollno" title="Register-No" placeholder="Enter the rollno" required /><br><br>
+        </div>
+        <div class="form-group col-md-6">
+            <label>NAME </label><input name="searchTxt" type="text"  id="searchTxt" placeholder="Enter the name" label="Name" class="form-control" class="searchField" style="text-transform:capitalize" required  /><br><br>
+        </div>
+    
+</div>
+             <label id="labl">SELECT THE QUESTION NOT ANSWERED </label><br>
+            <div class="form-row">
+            	<div class="form-group col-md-4 text-center">
+            <input type="radio" name="ques" value="QUESTION 11" id="11q"> <label>QN 11 </label>
+        </div>
+        <div class="form-group col-md-4 text-center">
+  <input type="radio" name="ques" value="QUESTION 12" id="12q"><label> QN 12 </label>
+</div>
+<div class="form-group col-md-4 text-center">
+  <input type="radio" name="ques" value="QUESTION 13" id="13q"><label> QN 13 </label>
+</div>
+</div>
+<div class="text-center">
+    <input class="btn btn-primary" type="button" onclick="eliminate();" value="Submit" id="show2"/><br><br>
+    </div>
+
+</div>
+<div class="form-group">
+    &nbsp;
+    </div>
+
+    <div id="down">
+    	<div class="form-row">
+        	<div id="qq1" class="form-group col-md-3"><label class="quess">QN 1 </label><input class="form-control" name="first" type="number" max="1" min="0" id="first" class="first" title="1st Qn's mark" /></div>
+            <div id="qq2" class="form-group col-md-3"><label class="quess">QN 2 </label><input class="form-control" name="second" type="number" max="1" min="0" id="second" class="second" title="2nd Qn's mark" /></div>
+           <div id="qq3" class="form-group col-md-3"> <label class="quess">QN 3 </label><input class="form-control" name="third" type="number" max="1" min="0" id="third" class="third" title="3rd Qn's mark" /></div>
+           <div id="qq4" class="form-group col-md-3"> <label class="quess">QN 4</label> <input class="form-control" name="fourth" type="number" max="1" min="0" id="fourth" class="fourth" title="4th Qn's mark" /></div>
+         </div>
+         <div class="form-row">
+           <div id="qq5" class="form-group col-md-3"> <label class="quess">QN 5 </label><input class="form-control" name="fifth" type="number" max="1" min="0" id="fifth" class="fifth" title="5th Qn's mark" /></div><br><br>
+           <div id="qq6" class="form-group col-md-3"> <label class="quess" >QN 6 </label><input class="form-control" name="sixth" type="number" max="3" min="0" id="sixth" class="sixth" title="6th Qn's mark" /></div>
+            <div id="qq7" class="form-group col-md-3"><label class="quess">QN 7 </label><input class="form-control" name="seventh" type="number" max="3" min="0" id="seventh" class="seventh" title="7th Qn's mark" /></div>
+           <div id="qq8" class="form-group col-md-3"> <label class="quess">QN 8 </label><input class="form-control" name="eight" type="number" max="3" min="0" id="eighth" class="eight" title="8th Qn's mark" /></div>
+       </div>
+       <div class="form-row">
+           <div id="qq9" class="form-group col-md-3"> <label class="quess">QN 9 </label><input class="form-control" name="ninth" type="number" max="3" min="0" id="ninth" class="ninth" title="9th Qn's mark" /></div>
+           <div id="qq10" class="form-group col-md-3"><label class="quess"> QN10 </label><input class="form-control" name="tenth" type="number" max="3" min="0" id="tenth" class="tenth" title="10th Qn's mark" /></div><br><br>
+           <div id="qq11" class="form-group col-md-3"> <label class="quess">QN11A </label><input class="form-control" name="eleventh" type="number" max="15" min="0" id="eleventha" class="eleventh" title="11th Qn's mark" /></div>
+           <div id="qq12" class="form-group col-md-3"> <label class="quess">QN11B </label><input class="form-control" name="twelfth" type="number" max="15" min="0" id="eleventhb" class="twelfth" title="12th Qn's mark"/></div><br><br>
+       </div>
+       <div class="form-row">
+           <div id="qq13" class="form-group col-md-3"> <label class="quess">QN12A </label><input class="form-control" name="thirteenth" type="number" max="15" min="0" id="twelftha" class="thirteenth" title="13th Qn's mark" /></div>
+            <div id="qq14" class="form-group col-md-3"><label class="quess">QN12B </label><input class="form-control" name="fourteenth" type="number" max="15" min="0" id="twelfthb" class="fourteenth" title="14th Qn's mark" /></div><br><br>
+           <div id="qq15" class="form-group col-md-3"> <label class="quess">QN13A </label><input class="form-control" name="fifteenth" type="number" max="15" min="0" id="thirteentha" class="fifteenth" title="15th Qn's mark" /></div>
+           <div id="qq16" class="form-group col-md-3"> <label class="quess">QN13B </label><input class="form-control" name="sixteenth" type="number" max="15" min="0" id="thirteenthb" class="sixteenth" title="16th Qn's mark" /></div><br><br>
+       </div>
+        </div>
+		<div class="alert alert-danger" id="numberOfStudents">
+				<label>NUMBER OF ENTRIES REMAINING</label>
+				<b><span id="spandata"></span></b>
+    	</div>
+        <div class="form-row">
+        <div class="form-group col-md-6 text-center"><a href='#' class="btn btn-primary" 
+        onclick='selectanotherdownload()' id="show3"
+    >Download CSV</a><br></div>
+    <div class="form-group col-md-6 text-center">
+            <input type="reset" class="btn btn-primary" onclick="reset()" value="Next Student" id="count"/><br><br>
+        </div>
+        </div>
+        <div class="text-center">
+        <a href="../php/test1.php" class="btn btn-success" onclick="window.confirm('Are you sure you want to proceed');" id="show4">Done</a>
+    </div>
+        </form>
+        </div>
+    </body>
+</html>
+
+
+
+
+<noscript>Your browser does not support JavaScript!</noscript>
+<script type="text/javascript" src="../js/roll.js"></script>
+
+<script>	
+		function nostudfunc(){
+			var value = document.getElementById("nostud").value;
+			localStorage.setItem("nostud",value);
+		}
+			
+function show()//to show the form id="changable";;;;
+            {		
+            	document.getElementById("show4").style.display = "none";
+            		var studCount = localStorage.getItem("nostud");
+				document.getElementById("spandata").innerHTML = studCount;
+
+                document.getElementById("changable").style.display="block";
+ document.getElementById("qformat").style.display="NONE";
+ document.getElementById("Test01").style.display="NONE";
+
+            } document.getElementById("changable").style.display="none";
+            document.getElementById("rollno").addEventListener('keyup',function addname(){
+				var input = document.getElementById("rollno").value;
+				for(var i=0; i<roll.length; i++){
+					if(roll[i]["Roll"] == input){
+						document.getElementById("searchTxt").value = roll[i]["Name"];
+						break;
+					}	
+				}
+			});	
+    var nam="test";
+    var subject=localStorage.getItem('subject');
+    var classnam=localStorage.getItem('class');
+    var year=localStorage.getItem('year');
+    var filenam="aaa"+"_"+subject+"_"+classnam+"_"+year+"_"+nam+".csv";
+    var anotherfilenam="ans"+"_"+subject+"_"+classnam+"_"+year+"_"+nam+".csv";
+            function selectthedownload()
+            {
+                downloadCSV({ filename: filenam });
+
+            }
+            function selectanotherdownload()
+            {
+            	var studCount = localStorage.getItem("nostud");
+				document.getElementById("spandata").innerHTML = studCount-1;
+            	localStorage.setItem("nostud",--studCount);            	
+            	if(!studCount){
+            		document.getElementById("show4").style.display = "block";
+            	}
+                download0thCSV({ filename: anotherfilenam });
+
+            }
+            var count = 1;
+      var button = document.getElementById("count");
+    button.onclick = function(){
+        count++;
+        cancel();
+       }
+    function individualtotal(){
+    	if(document.getElementById("twelftha").value=="")
+    	{
+        var q1= document.getElementById("first").value;
+        var q2= document.getElementById("second").value;
+        var q3= document.getElementById("third").value;
+        var q4= document.getElementById("fourth").value;
+        var q5= document.getElementById("fifth").value;
+        var q6= document.getElementById("sixth").value;
+        var q7= document.getElementById("seventh").value;
+        var q8= document.getElementById("eighth").value;
+        var q9= document.getElementById("ninth").value;
+        var q10= document.getElementById("tenth").value;
+        var q11a=document.getElementById("eleventha").value;
+        var q11b= document.getElementById("eleventhb").value;
+        var q12a=document.getElementById("twelftha").value;
+        var q12b= document.getElementById("twelfthb").value;
+        var q13a= document.getElementById("thirteentha").value;
+            var q13b=document.getElementById(   "thirteenthb").value;
+        var sum=parseFloat(q1)+parseFloat(q2)+parseFloat(q3)+parseFloat(q4)+parseFloat(q5)+parseFloat(q6)+parseFloat(q7)+parseFloat(q8)+parseFloat(q9)+parseFloat(q10)+parseFloat(q11a)+parseFloat(q11b)+parseFloat(q13a)+parseFloat(q13b);
+        return sum;
+    }
+    	if(document.getElementById("thirteentha").value=="")
+    	{
+        var q1= document.getElementById("first").value;
+        var q2= document.getElementById("second").value;
+        var q3= document.getElementById("third").value;
+        var q4= document.getElementById("fourth").value;
+        var q5= document.getElementById("fifth").value;
+        var q6= document.getElementById("sixth").value;
+        var q7= document.getElementById("seventh").value;
+        var q8= document.getElementById("eighth").value;
+        var q9= document.getElementById("ninth").value;
+        var q10= document.getElementById("tenth").value;
+        var q11a=document.getElementById("eleventha").value;
+        var q11b= document.getElementById("eleventhb").value;
+        var q12a=document.getElementById("twelftha").value;
+        var q12b= document.getElementById("twelfthb").value;
+        var q13a= document.getElementById("thirteentha").value;
+            var q13b=document.getElementById(   "thirteenthb").value;
+        var sum=parseFloat(q1)+parseFloat(q2)+parseFloat(q3)+parseFloat(q4)+parseFloat(q5)+parseFloat(q6)+parseFloat(q7)+parseFloat(q8)+parseFloat(q9)+parseFloat(q10)+parseFloat(q11a)+parseFloat(q11b)+parseFloat(q12a)+parseFloat(q12b);
+        return sum;
+    }
+    	if(document.getElementById("eleventha").value=="")
+    	{
+        var q1= document.getElementById("first").value;
+        var q2= document.getElementById("second").value;
+        var q3= document.getElementById("third").value;
+        var q4= document.getElementById("fourth").value;
+        var q5= document.getElementById("fifth").value;
+        var q6= document.getElementById("sixth").value;
+        var q7= document.getElementById("seventh").value;
+        var q8= document.getElementById("eighth").value;
+        var q9= document.getElementById("ninth").value;
+        var q10= document.getElementById("tenth").value;
+        var q11a=document.getElementById("eleventha").value;
+        var q11b= document.getElementById("eleventhb").value;
+        var q12a=document.getElementById("twelftha").value;
+        var q12b= document.getElementById("twelfthb").value;
+        var q13a= document.getElementById("thirteentha").value;
+            var q13b=document.getElementById(   "thirteenthb").value;
+        var sum=parseFloat(q1)+parseFloat(q2)+parseFloat(q3)+parseFloat(q4)+parseFloat(q5)+parseFloat(q6)+parseFloat(q7)+parseFloat(q8)+parseFloat(q9)+parseFloat(q10)+parseFloat(q12a)+parseFloat(q12b)+parseFloat(q13a)+parseFloat(q13b);
+        return sum;
+    }
+
+    }
+    function individualpercent(){
+        var sum=individualtotal();
+        return sum/50*100;
+    }
+    function individualresult(){
+        var percent=individualpercent();
+        if(percent>=50)
+            return 'PASS';
+        else
+            return 'FAIL';
+    }
+              function fixco()
+    {
+         var CO = document.getElementById("CO").value;alert(CO);
+         var x = document.getElementById("select1");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select2");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select3");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select4");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select5");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select6");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select7");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select8");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select9");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select10");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select11a");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select11b");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select12a");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select12b");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select13a");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+         var x = document.getElementById("select13b");
+        for(i=0;i<7-CO;i++)
+            x.remove(CO);
+    }
+            function cancel()
+    {
+        var eleven=document.getElementsByName("11");
+        var selected11;
+        for(var i=0;i<eleven.length;i++)
+            {
+                if(eleven[i].checked)
+                    selected11=eleven[i].value;
+            }
+        if(selected11=="one")
+        {   document.getElementById("eleventhb").value=0;
+            document.getElementById("eleventhb").disabled=true;
+         document.getElementById("select11b").disabled=true;
+            document.getElementById("choose11b").disabled=true;
+         document.getElementById("MaxQ11b").value="";
+         document.getElementById("MaxQ11b").disabled=true;
+         document.getElementById("MaxQ11a").value=15;
+        }
+        var twelve=document.getElementsByName("12");
+        var selected12;
+        for(var i=0;i<twelve.length;i++)
+            {
+                if(twelve[i].checked)
+                    selected12=twelve[i].value;
+            }
+        if(selected12=="one")
+        {   document.getElementById("twelfthb").value=0;
+            document.getElementById("twelfthb").disabled=true;
+         document.getElementById("select12b").disabled=true;
+            document.getElementById("choose12b").disabled=true;
+         document.getElementById("MaxQ12b").value="";
+         document.getElementById("MaxQ12b").disabled=true;
+         document.getElementById("MaxQ12a").value=15;
+        }
+        var thirteen=document.getElementsByName("13");
+        var selected13;
+        for(var i=0;i<thirteen.length;i++)
+            {
+                if(thirteen[i].checked)
+                    selected13=thirteen[i].value;
+            }
+        if(selected13=="one")
+        {   document.getElementById("thirteenthb").value=0;
+            document.getElementById("thirteenthb").disabled=true;
+         document.getElementById("select13b").disabled=true;
+            document.getElementById("choose13b").disabled=true;
+         document.getElementById("MaxQ13b").value="";
+         document.getElementById("MaxQ13b").disabled=true;
+         document.getElementById("MaxQ13a").value=15;
+        }
+    }
+            function eliminate(){
+            	txtdwldtest("maxmin.txt");
+        refresh();
+        cancel();
+        var question = document.getElementsByName("ques");
+var selectedques;
+        var disable1="";
+        var disable2="";
+
+for(var i = 0; i < question.length; i++) {
+   if(question[i].checked)
+       selectedques = question[i].value;
+ }
+        if(selectedques=="QUESTION 11"){
+            disable1="eleventha";
+            disable2="eleventhb";
+        }
+        else if(selectedques=="QUESTION 12")
+            {
+                disable1="twelftha";
+                disable2="twelfthb";
+            }
+        else if(selectedques=="QUESTION 13")
+            {
+                disable1="thirteentha";
+                disable2="thirteenthb";
+            }
+        //document.getElementById(disable1).value=0;
+        //document.getElementById(disable2).value=0;
+        document.getElementById(disable1).disabled=true;
+        document.getElementById(disable2).disabled=true;
+
+    }
+            function refresh(){
+           document.getElementById("eleventha").disabled=false;
+     document.getElementById("eleventhb").disabled=false;
+     document.getElementById("twelftha").disabled=false;
+     document.getElementById("twelfthb").disabled=false;
+     document.getElementById("thirteentha").disabled=false;
+     document.getElementById("thirteenthb").disabled=false;
+    }
+             function downloadCSV(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        // ROLLNO: parseFloat(1),
+          QN1: document.getElementById("select1").value,
+          QN2: document.getElementById("select2").value,
+          QN3: document.getElementById("select3").value,
+            QN4: document.getElementById("select4").value,
+            QN5: document.getElementById("select5").value,
+            QN6: document.getElementById("select6").value,
+            QN7: document.getElementById("select7").value,
+            QN8: document.getElementById("select8").value,
+            QN9: document.getElementById("select9").value,
+            QN10: document.getElementById("select10").value,
+            QN11a: document.getElementById("select11a").value,
+            QN11b: document.getElementById("select11b").value,
+            QN12a: document.getElementById("select12a").value,
+            QN12b: document.getElementById("select12b").value,
+            QN13a: document.getElementById("select13a").value,
+            QN13b: document.getElementById("select13b").value,
+
+        },
+        {
+        // ROLLNO: parseFloat(2),
+        QN1: document.getElementById("choose1").value,
+          QN2: document.getElementById("choose2").value,
+          QN3: document.getElementById("choose3").value,
+            QN4: document.getElementById("choose4").value,
+            QN5: document.getElementById("choose5").value,
+            QN6: document.getElementById("choose6").value,
+            QN7: document.getElementById("choose7").value,
+            QN8: document.getElementById("choose8").value,
+            QN9: document.getElementById("choose9").value,
+            QN10: document.getElementById("choose10").value,
+            QN11a: document.getElementById("choose11a").value,
+            QN11b: document.getElementById("choose11b").value,
+            QN12a: document.getElementById("choose12a").value,
+            QN12b: document.getElementById("choose12b").value,
+            QN13a: document.getElementById("choose13a").value,
+            QN13b: document.getElementById("choose13b").value,
+        },
+        {
+        // ROLLNO: parseFloat(3),
+        QN1: document.getElementById("MaxQ1").value,
+          QN2: document.getElementById("MaxQ2").value,
+          QN3: document.getElementById("MaxQ3").value,
+            QN4: document.getElementById("MaxQ4").value,
+            QN5: document.getElementById("MaxQ5").value,
+            QN6: document.getElementById("MaxQ6").value,
+            QN7: document.getElementById("MaxQ7").value,
+            QN8: document.getElementById("MaxQ8").value,
+            QN9: document.getElementById("MaxQ9").value,
+            QN10: document.getElementById("MaxQ10").value,
+            QN11a: document.getElementById("MaxQ11a").value,
+            QN11b: document.getElementById("MaxQ11b").value,
+            QN12a: document.getElementById("MaxQ12a").value,
+            QN12b: document.getElementById("MaxQ12b").value,
+            QN13a: document.getElementById("MaxQ13a").value,
+            QN13b: document.getElementById("MaxQ13b").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+
+            function convertArrayOfObjectsToCSV(args) {
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || ',';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function(item) {
+            ctr = 0;
+            keys.forEach(function(key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+            function download0thCSV(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+            NO: count,
+            NAME: document.getElementById("searchTxt").value,
+            ROLLNO: document.getElementById("rollno").value,
+          QN1: document.getElementById("first").value,
+          QN2: document.getElementById("second").value,
+          QN3: document.getElementById("third").value,
+            QN4: document.getElementById("fourth").value,
+            QN5: document.getElementById("fifth").value,
+            QN6: document.getElementById("sixth").value,
+            QN7: document.getElementById("seventh").value,
+            QN8: document.getElementById("eighth").value,
+            QN9: document.getElementById("ninth").value,
+            QN10: document.getElementById("tenth").value,
+            QN11a: document.getElementById("eleventha").value,
+            QN11b: document.getElementById("eleventhb").value,
+            QN12a: document.getElementById("twelftha").value,
+            QN12b: document.getElementById("twelfthb").value,
+            QN13a: document.getElementById("thirteentha").value,
+            QN13b: document.getElementById("thirteenthb").value,
+            TOTAL: individualtotal(),
+            PERCENT: individualpercent(),
+            RESULT: individualresult()
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+
+	//////////////////////download the start and end point
+	function txtdwldtest(filename){
+		var min;
+		var value=[document.getElementById("select1").value,document.getElementById("select2").value,document.getElementById("select3").value,document.getElementById("select4").value,document.getElementById("select5").value,document.getElementById("select6").value,document.getElementById("select7").value,document.getElementById("select8").value,document.getElementById("select9").value,document.getElementById("select10").value,document.getElementById("select11a").value,document.getElementById("select11b").value,document.getElementById("select12a").value,document.getElementById("select12b").value,document.getElementById("select13a").value,document.getElementById("select13b").value];
+
+		for (var i =value.length - 1; i >= 0; i--) {
+			if(value[i]=="CO1")
+			{	min="CO1_";
+				break;
+			}
+		}
+		if(min!="CO1_")
+		{
+			for (var i =value.length - 1; i >= 0; i--) {
+				if(value[i]=="CO2")
+				{	min="CO2_";
+					break;
+				}
+			}
+
+		}
+		else if(min!="CO2_")
+		{
+			for (var i =value.length - 1; i >= 0; i--) {
+				if(value[i]=="CO3")
+				{	min="CO3_";
+					break;
+				}
+			}
+
+		}
+		else if(min!="CO3_")
+		{
+			for (var i =value.length - 1; i >= 0; i--) {
+				if(value[i]=="CO4")
+				{	min="CO4_";
+					break;
+				}
+			}
+
+		}
+		else if(min!="CO4_")
+		{
+			for (var i =value.length - 1; i >= 0; i--) {
+				if(value[i]=="CO5")
+				{	min="CO5_";
+					break;
+				}
+			}
+
+		}
+		else if(min!="CO5_")
+			{min="CO6_";}
+		var max;
+		var data=[document.getElementById("choose1").value,document.getElementById("choose2").value,document.getElementById("choose3").value,document.getElementById("choose4").value,document.getElementById("choose5").value,document.getElementById("choose6").value,document.getElementById("choose7").value,document.getElementById("choose8").value,document.getElementById("choose9").value,document.getElementById("choose10").value,document.getElementById("choose11a").value,document.getElementById("choose11b").value,document.getElementById("choose12a").value,document.getElementById("choose12b").value,document.getElementById("choose13a").value,document.getElementById("choose13b").value];
+
+		for (var i =data.length - 1; i >= 0; i--) {
+			if(data[i]=="CL1")
+			{	max="CL1";
+				break;
+			}
+		}
+		if(max!="CL1")
+		{
+			for (var i =data.length - 1; i >= 0; i--) {
+				if(data[i]=="CL2")
+				{	max="CL2";
+					break;
+				}
+			}
+
+		}
+		else if(max!="CL2")
+		{
+			for (var i =data.length - 1; i >= 0; i--) {
+				if(data[i]=="CL3")
+				{	max="CL3";
+					break;
+				}
+			}
+
+		}
+		else if(max!="CL3")
+		{
+			for (var i =data.length - 1; i >= 0; i--) {
+				if(data[i]=="CL4")
+				{	max="CL4";
+					break;
+				}
+			}
+
+		}
+		else if(max!="CL4")
+		{
+			for (var i =data.length - 1; i >= 0; i--) {
+				if(data[i]=="CL5")
+				{	max="CL5";
+					break;
+				}
+			}
+
+		}
+		else if(max!="CL5")
+			max="CL6";
+
+
+	var text=min+max;
+	var element = document.createElement('a');
+	    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+	    element.setAttribute('download', filename);
+
+	    element.style.display = 'none';
+	    document.body.appendChild(element);
+
+	    element.click();
+
+	    document.body.removeChild(element);
+	}
+	// link.appendChild(document.createTextNode("Save file"));
+	// document.body.appendChild(link);
+		
+        </script>

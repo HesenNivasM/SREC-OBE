@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Details-Entry</title>
+    <link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+
+    </head>
+<body  style="background-color: #e9e2e1">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+
+    <div class="" style="background-color: #e9e2e1;">
+<div class="form-group">
+    &nbsp;
+    </div>
+    <h2 class="text-center">&nbsp;Welcome to Exam Performance Assessment &amp; Analysis(EPAA)</h2>
+
+    <br>
+    <div id="style">
+        <div id="innerstyle">
+        </div>
+        <form id="form" name="form1" action="index.php" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>FACULTY NAME</label><input name="facname" type="text"  id="facname" placeholder="Enter your name" label="facname" class="form-control" style="text-transform:capitalize" required title="Enter the name" /><br><br>
+            </div>
+            <div class="form-group col-md-6">
+        		<label>PASSWORD</label><input name="facpass" type="password"  id="facpass" placeholder="Enter your password" label="facpass" class="form-control" style="text-transform:capitalize" required title="Enter the password" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+           <label>  DEPARTMENT</label><select id="dept" title="Select the department" class="form-control">
+		   <option value="AERO">AERO</option>
+		   <option value="BME">BME</option>
+		   <option value="CIVIL">CIVIL</option>
+		   <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="E&I">E&I</option>
+            <option value="IT">IT</option>
+            <option value="MECH">MECH</option>
+		   </select><br><br>
+        </div>
+        <div class="form-group col-md-3">
+           <label>REGULATION </label>
+           <select id="reg" title="Select the regulation" class="form-control">
+           <option value="2012-Revised">2012-Revised</option>
+           <option value="2016">2016</option>
+            </select><br><br>
+        </div>
+        <div class="form-group col-md-2">
+           <label>ACADEMIC YEAR </label><select id="sec" title="Select the academic year" class="form-control">
+		   <option value="2014-2018">2014-2018</option>
+		   <option value="2015-2019">2015-2019</option>
+            <option value="2016-2020">2016-2020</option>
+            <option value="2017-2021">2017-2021</option>
+		   </select>
+        </div>
+        <div class="form-group col-md-2">
+        &nbsp;&nbsp;&nbsp;<label>YEAR </label><select id="year" title="Select the year of pursuing education" class="form-control">
+		   <option value="1">1</option>
+		   <option value="2">2</option>
+		   <option value="3">3</option>
+		   <option value="4">4</option>
+		   </select><br><br>
+        </div>
+        <div class="form-group col-md-2">
+            &nbsp;&nbsp;&nbsp;<label>SEMESTER </label><select id="Semester" name="Semester" title="Select the semester of pursuing education" class="form-control">
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+           <option value="7">7</option>
+           <option value="8">8</option>
+           </select><br><br>
+        </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+		      <label>SUBJECT CODE</label><input name="SubCode" type="text"  id="SubCode" placeholder="Enter the subject code" label="SubCode" class="form-control" style="text-transform:capitalize" required title="Enter the Subject Code" /><br><br>
+            </div>
+            <div class="form-group col-md-6">
+		      <label> SUBJECT NAME</label><input name="SubName" type="text"  id="SubName" placeholder="Enter the subject name" label="SubName" class="form-control" style="text-transform:capitalize" required title="Enter the Subject Name" /><br><br>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#" download="file.txt" class="btn btn-primary btn-lg">Done </a>
+            <input type="button" class="btn btn-primary btn-lg" onclick="call()" id="button" value="Submit" />
+        </div>
+            <br><br>
+
+            </form>
+            <form>
+                <div class="alert alert-dark">
+            <div class="form-row ">
+            <div class="form-group col-md-4">
+            <label >TEST TYPE:</label><br>
+            </div>
+            <div class="form-group col-md-4">
+            
+           <input  type="radio" id="chckbx1" name="choice"  onclick="displaytheory();" >
+           <label >THEORY</label>
+            
+            </div>
+           <div class="form-group col-md-4">
+                
+                    <input type="radio" id="chckbx2" name="choice"  onclick="displayprac();">
+                    <label >PRACTICAL</label>
+                
+            </div>
+           <br><br>
+       
+    </div>
+           <div id="theorydiv" class="text-center">
+            <div class="alert alert-dark">
+             <a class="alert-link" id="t1href" href="test1.html">TEST01</a>
+         </div>
+         <div class="alert alert-dark">
+            <a class="alert-link" href="test2.html">TEST02</a>
+        </div>
+            <div class="alert alert-dark">
+            <a class="alert-link" href="obj.html">OBJ</a>
+        </div>
+            <div class="alert alert-dark">
+             <a class="alert-link" href="newpsr.html">PSR</a>
+         </div>
+           </div>
+           <div id="pracdiv" class="text-center">
+            <div class="alert alert-dark">
+             <a class="alert-link" href="record.html">RECORD</a>
+         </div>
+         <div class="alert alert-dark">
+            <a class="alert-link" href="models.html">MODELS</a>
+        </div>
+           </div>
+       </div>
+        </form>
+
+    </div>
+
+<!--         <footer class="logo">
+          <div id="down">
+            <p >Developed by</p>
+            <img src="../images/ant1.png"/>
+             </div>
+        </footer> -->
+        </div>
+    </div>
+    </body>
+</html>
+    <noscript>Your browser does not support JavaScript!</noscript>
+
+
+    <script>
+        document.getElementById("theorydiv").style.display="none";
+        document.getElementById("pracdiv").style.display="none";
+    function displaytheory() 
+    {
+        if(document.getElementById("chckbx1").checked)
+        {
+            document.getElementById("theorydiv").style.display="block";
+            document.getElementById("pracdiv").style.display="none";
+        }
+        else
+        {
+         document.getElementById("theorydiv").style.display="none";
+            document.getElementById("pracdiv").style.display="none";   
+        }
+    }
+    function displayprac(){
+         if(document.getElementById("chckbx2").checked)
+        {
+            document.getElementById("theorydiv").style.display="none";
+            document.getElementById("pracdiv").style.display="block";
+        }
+        else
+        {
+         document.getElementById("theorydiv").style.display="none";
+            document.getElementById("pracdiv").style.display="none";   
+        }
+    }
+    function call()
+    {
+    var subject=document.getElementById("SubCode").value;
+    var department=document.getElementById("dept").value;
+    var section=document.getElementById("sec").value;
+    var year=document.getElementById("year").value;
+    var group=department+section;
+        localStorage.setItem('subject',subject);
+        localStorage.setItem('class',group);
+        localStorage.setItem('year',year);
+
+
+    }
+             
+        
+        
+</script>
+
+

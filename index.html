@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- < -->
+
+
+
+ <head>
+    <title>SREC OBE</title>
+    <!-- custom-theme -->
+<!--     <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script> -->
+    <!-- //custom-theme -->
+<!--         <meta name="viewport" content="width=device-width, initial-scale=2.0">
+ -->
+    <link type="text/css" href="login/css/welcomepage.css" rel="stylesheet" media="all" />
+    <!-- js -->
+    <script src="login/jscript/jquery-1.9.1.min.js"></script>
+    <!--// js -->
+    <link rel="stylesheet" type="text/css" href="login/css/responsivetabs.css " />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Questrial" />
+    <link rel="stylesheet" href="bs-css/bootstrap.min.css">
+</head>
+
+<body class="bg agileinfo" style="background-color: #e9e2e1">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="welcome">
+
+
+    </div>
+    <div class="w3layouts_main wrap">
+        <!--Horizontal Tab-->
+
+        <div id="parentHorizontalTab_agile" class="scrollbar">
+            <ul class="resp-tabs-list hor_1">
+                <li>LogIn</li>
+                <li>SignUp</li>
+                <li>Results</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+                <div class="w3_agile_login">
+                    <form autocomplete="off" action="login/php/process.php" method="POST" class="agile_form">
+                        <p>Username</p>
+                        <input type="text" name="user" required="required" />
+                        <p>Password</p>
+                        <input type="password" name="password" required="required" class="password" />
+                        <div class="check">
+                        </div>
+                        <input type="submit" name="login" value="LogIn" class="agileinfo" />
+                        <br>
+                        <br>
+                        <input type="submit" value="Download Requirements" name="dwnld" />
+                    </form>
+                    <div class="login_w3ls">
+                        <label>Developed by ANT</label>
+                    </div>
+
+                </div>
+                <div id="force-overflow" class="agile_its_registration">
+                    <form autocomplete="off" action="login/php/signin.php" method="POST" class="agile_form">
+                        <p class="uname">Username</p>
+                        <input type="text" name="username" required="required" />
+                        <p>Register-No</p>
+                        <input type="tel" name="userid" required="required" />
+                        <p>Password</p>
+                        <input type="password" name="password" id="password1" required="required">
+                        <p>Confirm Password</p>
+                        <input type="password" name="Confirm Password" id="password2" required="required">
+                        <p>Phone No</p>
+                        <input type="tel" name="phoneno" id="phoneno" required="required">
+                        <div class="check w3_agileits">
+                        </div>
+                        <input type="submit" name="signin" value="Signup" />
+                        <input type="reset" value="Reset" />
+                        <div class="login_w3ls">
+                        <label>Developed by ANT</label>
+                    	</div>
+                    </form>
+                </div>
+                <div id="force-overflow" class="agile_its_registration">
+                    <form autocomplete="off" action="login/php/resultprocess.php" method="POST" class="agile_form">
+                        <p class="uname">Username</p>
+                        <input type="text" name="resultuser" required="required" />
+                        <p>Password</p>
+                        <input type="password" name="resultpassword" id="password3" required="required">
+                        <br><br>
+                        <input type="submit" name="showresults" value="Show Results" />
+                        <input type="submit" name="showallresults" value="Show All Results" /><hr>
+                        <div style="text-align: center;"><a href="php/overall.php" name="condolidated" style="font-size: 18px;color: black;">Consolidated of the Course</a></div><hr>
+                        <div class="login_w3ls">
+                        <label>Developed by ANT</label>
+                    	</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- //Horizontal Tab -->
+    </div>
+    <!--tabs-->
+    <script src="login/jscript/easyResponsiveTabs.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Horizontal Tab
+            $('#parentHorizontalTab_agile').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                tabidentify: 'hor_1', // The tab groups identifier
+                activate: function(event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#nested-tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!--//tabs-->
+</body>
+
+</html>

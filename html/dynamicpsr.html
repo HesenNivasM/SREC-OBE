@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>PSR-Entry</title>
+    <link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+</head>
+
+<body style="background-color: #e9e2e1">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+<div class="container">
+    <div class="text-center">
+    <h1>Dynamic PSR Analysis</h1>
+</div>
+
+    
+	<form id="full">
+	<div class="alert alert-dark text-center" class="PSR" >
+         <div class="form-row">
+        <div class="form-group col-md-6"><label>ROLL NUMBER</label>
+        <input type="number" min="0" class="form-control" name="roll_no" placeholder="Enter the rollno" id="roll_no" required></div>
+        <div class="form-group col-md-6">
+        <label>NAME</label>
+		<input type="text" name="name" class="form-control" id="name" style="text-transform:capitalize" placeholder="Enter the name" required>
+		<br><br/></div>
+		</div>
+	 <label><h5>SELECT THE CO's ADDRESSED</h5></label><br>
+            <label><input type='checkbox' onclick='dhandleClick1();' id="co1dclick">CO1</label>
+            <label><input type='checkbox' onclick='dhandleClick2();' id="co2dclick">CO2</label>
+            <label><input type='checkbox' onclick='dhandleClick3();' id="co3dclick">CO3</label>
+            <label><input type='checkbox' onclick='dhandleClick4();' id="co4dclick">CO4</label>
+            <label><input type='checkbox' onclick='dhandleClick5();' id="co5dclick">CO5</label>
+            <label><input type='checkbox' onclick='dhandleClick6();' id="co6dclick">CO6</label>
+            <label><input type='checkbox' onclick='dhandleClick7();' id="co7dclick">CO7</label>
+                </div>
+        <div class="text-center"  class="PSR" id="dPSR">
+            <div class="form-row">          
+            <label class="form-group col-md-4"><div id="co1dm">CO1: Maximum marks;<input  class="form-control" name="co1maxmark" type="number"  id="co1dmaxmark"/></div></label>
+            <label class="form-group col-md-4"><div id="co2dm">CO2: Maximum marks;<input  class="form-control" name="co2maxmark" type="number"  id="co2dmaxmark"/></div></label>
+            <label class="form-group col-md-4"><div id="co3dm">CO3: Maximum marks;<input  class="form-control" name="co3maxmark" type="number"  id="co3dmaxmark"/></div></label>
+        </div>
+             <div class="form-row">           
+           <label class="form-group col-md-4"> <div id="co4dm">CO4: Maximum marks;<input class="form-control"  name="co4maxmark" type="number"  id="co4dmaxmark"/></div></label>
+            <label class="form-group col-md-4"><div id="co5dm">CO5: Maximum marks;<input  class="form-control" name="co5maxmark" type="number"  id="co5dmaxmark"/></div></label>
+            <label class="form-group col-md-4"><div id="co6dm">CO6: Maximum marks;<input  class="form-control" name="co6maxmark" type="number"  id="co6dmaxmark"/></div></label>
+        </div>
+            <div class="form-row">
+            <label class="form-group col-md-4"><div id="co7dm">CO7: Maximum marks;<input  class="form-control" name="co7maxmark" type="number"  id="co7dmaxmark"/></div></label><br>
+            </div>
+            <div id="buttons">
+            
+
+            <a href='#' onclick='dselectthefilenam()'><input type="button" value="Submit" id="dshow1" class="btn btn-primary" />
+</a><br><br></div>   
+        <input type="button" value="Enter student marks" onclick="denterpsrmarks()" id="dshow2" class="btn btn-primary" />
+         </div>
+<div class="form-group">
+    &nbsp;
+    </div>
+
+             <div id="dstupsr" class="text-center" class="PSR">
+                <div class="form-row">
+         <label class="form-group col-md-4"><div id="co1da">CO1: Marks obtained<input class="form-control" name="co1mark" type="number"  id="co1dmark" required/></div></label>
+            <label class="form-group col-md-4"><div id="co2da">CO2: Marks obtained<input class="form-control" name="co2mark" type="number"  id="co2dmark" required/></div></label>
+            <label class="form-group col-md-4"><div id="co3da">CO3: Marks obtained<input class="form-control" name="co3mark" type="number"  id="co3dmark" required/></div></label>
+        </div>
+            <div class="form-row">
+            <label class="form-group col-md-4"><div id="co4da">CO4: Marks obtained<input class="form-control" name="co4mark" type="number"  id="co4dmark" required/></div></label>
+            <label class="form-group col-md-4"><div id="co5da">CO5: Marks obtained<input class="form-control" name="co5mark" type="number"  id="co5dmark" required/></div></label>
+           <label class="form-group col-md-4"><div id="co6da">CO6: Marks obtained<input class="form-control" name="co6mark" type="number"  id="co6dmark" required/></div></label>
+       </div>
+           <div class="form-row">
+            <label class="form-group col-md-4"><div id="co7da">CO7: Marks obtained<input class="form-control" name="co7mark" type="number"  id="co7dmark" required/></div></label><br>
+        </div>
+    <a href='#'
+        onclick='dselectanotherfilenam()' id="dshow4" class="btn btn-primary" 
+    >Submit</a><br><br>
+   <input type="reset" onclick="dresetfunction()" value="Next student" id="dshow3"  class="btn btn-primary" /><br><br>
+     <a id="phpa" onclick="window.confirm('Are you sure you want to proceed');" href="../php/dynamicpsr.php" class="btn btn-success" >Done</a>
+            </div>
+    </form>
+</div>
+</body>
+
+<noscript>Your browser does not support JavaScript!</noscript>
+<script type="text/javascript" src="../js/roll.js"></script>
+
+
+<script type="text/javascript">
+	document.getElementById("dPSR").style.visibility="hidden";
+	document.getElementById("dstupsr").style.visibility="hidden";
+	 var dnam="dynamicpsr";
+    var dsubject=localStorage.getItem('subject');
+    var dclassnam=localStorage.getItem('class');
+    var dyear=localStorage.getItem('year');
+    var dfilenam="aaa"+"_"+dsubject+"_"+dclassnam+"_"+dyear+"_aaa"+dnam+".csv";
+    var danotherfilenam="ans"+"_"+dsubject+"_"+dclassnam+"_"+dyear+"_ans"+dnam+".csv";
+    document.getElementById("roll_no").addEventListener('keyup',function addname(){
+        var input = document.getElementById("roll_no").value;
+        for(var i=0; i<roll.length; i++){
+            if(roll[i]["Roll"] == input){
+                document.getElementById("name").value = roll[i]["Name"];
+                break;
+            }
+        }
+    });
+    function dresetfunction(){
+    	document.getElementById("full").reset();
+        document.getElementById("co1dm").style.visibility="hidden";
+        document.getElementById("co1da").style.visibility="hidden";
+        document.getElementById("co2dm").style.visibility="hidden";
+        document.getElementById("co2da").style.visibility="hidden";
+        document.getElementById("co3dm").style.visibility="hidden";
+        document.getElementById("co3da").style.visibility="hidden";
+        document.getElementById("co4dm").style.visibility="hidden";
+        document.getElementById("co4da").style.visibility="hidden";
+        document.getElementById("co5dm").style.visibility="hidden";
+        document.getElementById("co5da").style.visibility="hidden";
+        document.getElementById("co6dm").style.visibility="hidden";
+        document.getElementById("co6da").style.visibility="hidden";
+        document.getElementById("co7dm").style.visibility="hidden";
+        document.getElementById("co7da").style.visibility="hidden";
+
+    }
+    function dselectthefilenam()
+    {
+        ddownload1stCSV({ filename: dfilenam });
+    }
+    function dselectanotherfilenam()
+    {
+        ddownload2ndCSV({ filename: danotherfilenam });
+    }
+	 function dhandleClick1()
+    {
+         if(document.getElementById("co1dclick").checked)
+        {
+            document.getElementById("co1dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co1dm").style.visibility="hidden";
+        }
+    }
+    function dhandleClick2()
+    {
+        if(document.getElementById("co2dclick").checked)
+        {
+            document.getElementById("co2dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co2dm").style.visibility="hidden";
+        }
+    }
+    function dhandleClick3()
+    {
+        if(document.getElementById("co3dclick").checked)
+        {
+            document.getElementById("co3dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co3dm").style.visibility="hidden";
+        }
+    }
+    function dhandleClick4()
+    {
+       if(document.getElementById("co4dclick").checked)
+        {
+            document.getElementById("co4dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co4dm").style.visibility="hidden";
+        }
+    }
+    function dhandleClick5()
+    {
+        if(document.getElementById("co5dclick").checked)
+        {
+            document.getElementById("co5dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co5dm").style.visibility="hidden";
+        }
+    }
+    function dhandleClick6()
+    {
+        if(document.getElementById("co6dclick").checked)
+        {
+            document.getElementById("co6dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co6dm").style.visibility="hidden";
+        }
+    }
+    function dhandleClick7()
+    {
+        if(document.getElementById("co7dclick").checked)
+        {
+            document.getElementById("co7dm").style.visibility="visible";
+        document.getElementById("dshow1").style.visibility="visible";
+        document.getElementById("dshow2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co7dm").style.visibility="hidden";
+        }
+    }
+     function ddownload1stCSV(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        	NAME: (document.getElementById("name").value),
+            ROLLNO: (document.getElementById("roll_no").value),
+            CO1_max: parseFloat(document.getElementById("co1dmaxmark").value),
+            CO2_max: parseFloat(document.getElementById("co2dmaxmark").value),
+            CO3_max: parseFloat(document.getElementById("co3dmaxmark").value),
+            CO4_max: parseFloat(document.getElementById("co4dmaxmark").value),
+            CO5_max: parseFloat(document.getElementById("co5dmaxmark").value),
+            CO6_max: parseFloat(document.getElementById("co6dmaxmark").value),
+            CO7_max: parseFloat(document.getElementById("co7dmaxmark").value),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+    function convertArrayOfObjectsToCSV(args) {
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || ',';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function(item) {
+            ctr = 0;
+            keys.forEach(function(key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+     function ddownload2ndCSV(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+            NAME: (document.getElementById("name").value),
+            ROLLNO: (document.getElementById("roll_no").value),
+            CO1: parseFloat(document.getElementById("co1dmark").value),
+            CO2: parseFloat(document.getElementById("co2dmark").value),
+            CO3: parseFloat(document.getElementById("co3dmark").value),
+            CO4: parseFloat(document.getElementById("co4dmark").value),
+            CO5: parseFloat(document.getElementById("co5dmark").value),
+            CO6: parseFloat(document.getElementById("co6dmark").value),
+            CO7: parseFloat(document.getElementById("co7dmark").value),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+     function denterpsrmarks()
+    {
+    	document.getElementById("dstupsr").style.visibility="visible";
+        document.getElementById("co1da").style.visibility="hidden";
+         document.getElementById("co2da").style.visibility="hidden";
+         document.getElementById("co3da").style.visibility="hidden";
+         document.getElementById("co4da").style.visibility="hidden";
+         document.getElementById("co5da").style.visibility="hidden";
+         document.getElementById("co6da").style.visibility="hidden";
+         document.getElementById("co7da").style.visibility="hidden";
+        var co1clickvalue=document.getElementById("co1dmaxmark").value;
+        if(co1clickvalue>0)
+            document.getElementById("co1da").style.visibility="visible";
+        var co2clickvalue=document.getElementById("co2dmaxmark").value;
+        if(co2clickvalue>0)
+            document.getElementById("co2da").style.visibility="visible";
+        var co3clickvalue=document.getElementById("co3dmaxmark").value;
+        if(co3clickvalue>0)
+            document.getElementById("co3da").style.visibility="visible";
+        var co4clickvalue=document.getElementById("co4dmaxmark").value;
+        if(co4clickvalue>0)
+            document.getElementById("co4da").style.visibility="visible";
+        var co5clickvalue=document.getElementById("co5dmaxmark").value;
+        if(co5clickvalue>0)
+            document.getElementById("co5da").style.visibility="visible";
+        var co6clickvalue=document.getElementById("co6dmaxmark").value;
+        if(co6clickvalue>0)
+            document.getElementById("co6da").style.visibility="visible";
+        var co7clickvalue=document.getElementById("co7dmaxmark").value;
+        if(co7clickvalue>0)
+            document.getElementById("co7da").style.visibility="visible";
+
+    }
+</script>
+</html>

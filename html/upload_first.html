@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results Upload</title>
+    <link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+</head>
+<body style="background-color: #e9e2e1">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="style" class="container text-center">
+        <div class="form-group">
+            &nbsp;
+        </div>
+        <form action="../php/upload_file.php" method="post" enctype="multipart/form-data">
+        <div class="alert alert-dark">
+            <label for="fileSelect"><h5>Upload Text File:</h5></label><br>
+            <label>(The text file "file.txt")</label>
+             <br><br>      
+            <input class="btn btn-primary" type="file" name="file" id="fileSelect">
+            <br><br>
+            <input class="btn btn-primary" class="button" type="submit" name="action" value="Upload to Shared Folder">
+            <br><br>
+        </div>
+        <div  class="alert alert-dark">
+            <label for="fileSelect"><h5>Upload Files:</h5></label><br>
+            <label>(The remaining 6 files from the results folder)</label>
+            <br><br>
+            <input class="btn btn-primary" name="upload[]" type="file" multiple="multiple" />
+            <br><br>
+            <input class="btn btn-primary" class="button" type="submit" name="action2" value="Upload to Shared Folder">
+        </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+

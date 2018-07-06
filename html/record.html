@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Record marks-Entry</title>
+    <link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+</head>
+<body style="background-color: #e9e2e1">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    <div class=" container">
+    <h1 class="text-center">LABORATORY RECORD ANALYSIS</h1>
+     <div class="form-group">
+    &nbsp;
+    </div>
+	<div id="maindiv" class="text-center">
+    <div id="noexps" class=" form-row">
+        <div class="form-group col-md-6">
+		<label><h5>NO OF EXPERIMENTS</h5></label>
+		<input type="number" class="form-control" name="no_of_exps" id="no_of_exps">
+		<br><br>
+        </div>
+        <div class="form-group col-md-6">
+        <label><h5>MAX COS ADDRESSED</h5></label>
+        <input type="number" class="form-control" name="no_of_cos" id="no_of_cos">
+        <br><br>
+        </div>
+		<input class="form-group col-md-12 btn btn-primary" type="submit" name="submit_exps" value="Submit data" onclick="generate()"><br><br>
+	</div>
+    <div class="form-group">
+    &nbsp;
+    </div>
+	<div id="exp_area">
+        <div id="add1" class="form-row">
+            
+        </div>
+        <div id="add2" class="form-row">
+            
+        </div>
+        <div id="add3" class="form-row">
+            
+        </div>
+        <div id="add4" class="form-row">
+            
+        </div>
+        <div id="add5" class="form-row">
+            
+        </div>
+
+
+	</div>
+    <div id="markentry">
+            <input type="submit" class="btn btn-primary" name="submit_cos" id="submit_cos" value="Submit COs" onclick="selectthedownload()">
+<br><br>
+     <a href="recordmarks.html" class="btn btn-success" onclick="window.confirm('Are you sure you want to proceed');">Enter Marks</a>
+    
+    </div>
+</div>
+</div>
+</body>
+</html>
+<noscript>Your browser does not support JavaScript!</noscript>
+
+<script>
+    
+    document.getElementById("submit_cos").style.visibility="hidden"
+    document.getElementById("markentry").style.visibility = "hidden"
+function generate() {
+    var a = document.getElementById("no_of_exps").value;
+    sessionStorage.setItem("nums", a);
+    var b = document.getElementById("no_of_cos").value;
+    var ch = document.getElementById("exp_area");
+    for (i = 0; i < a; i++) {
+        
+        var input = document.createElement("select");
+        var option = document.createElement("option");
+        var value = document.createElement("label");
+        var text = document.createTextNode("Experiment No: "+( i+1 )+" ");
+        var space = document.createElement("br");
+        var each = document.createElement("div");
+        each.setAttribute("class", "form-group col-md-4");
+
+        input.id="exp_no"+(i+1);
+
+        input.setAttribute("class", "form-control");
+
+        value.appendChild(text);
+        // ch.appendChild(value);
+        for(j = 0; j < b; j++){
+            var opt = document.createElement("option");
+            var addingDropDown="CO"+(j+1);
+            var text1 = document.createTextNode(addingDropDown);
+            opt.appendChild(text1);
+            opt.setAttribute("value",addingDropDown);
+            input.appendChild(opt);
+        }
+        if(i<3){
+            var division = document.getElementById("add1");
+        }
+        if(i < 6 && i >= 3){
+            var division = document.getElementById("add2");
+        }
+        else if (i<9 && i>=6) {
+            var division = document.getElementById("add3");
+        }
+        else if (i<12 && i>=9) {
+            var division = document.getElementById("add4");
+        }
+        else if (i<15 && i>=12) {
+            var division = document.getElementById("add5");
+        }
+        division.setAttribute("class", "form-row");
+            each.appendChild(value);
+            each.appendChild(input);
+            each.appendChild(space);
+            division.appendChild(each);
+            ch.appendChild(division);
+
+        // ch.appendChild(input);
+        // ch.appendChild(space);
+        
+    }
+document.getElementById("markentry").style.visibility = "visible"
+    document.getElementById("submit_cos").style.visibility = "visible"
+
+}
+var filenam="record.csv";
+function selectthedownload()
+{
+    var a = document.getElementById("no_of_exps").value;
+    if(a==15){
+        downloadCSV15({ filename: filenam });
+    }
+    if(a==14){
+        downloadCSV14({ filename: filenam });
+    }
+    if(a==13){
+        downloadCSV13({ filename: filenam });
+    }
+    if(a==12){
+        downloadCSV12({ filename: filenam });
+    }
+    if(a==11){
+        downloadCSV11({ filename: filenam });
+    }
+    if(a==10){
+        downloadCSV10({ filename: filenam });
+    }
+}
+function downloadCSV15(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: parseFloat(0),
+        EXP1: document.getElementById("exp_no1").value,
+        EXP2: document.getElementById("exp_no2").value,
+        EXP3: document.getElementById("exp_no3").value,
+        EXP4: document.getElementById("exp_no4").value,
+        EXP5: document.getElementById("exp_no5").value,
+        EXP6: document.getElementById("exp_no6").value,
+        EXP7: document.getElementById("exp_no7").value,
+        EXP8: document.getElementById("exp_no8").value,
+        EXP9: document.getElementById("exp_no9").value,
+        EXP10: document.getElementById("exp_no10").value,
+        EXP11: document.getElementById("exp_no11").value,
+        EXP12: document.getElementById("exp_no12").value,
+        EXP13: document.getElementById("exp_no13").value,
+        EXP14: document.getElementById("exp_no14").value,
+        EXP15: document.getElementById("exp_no15").value,
+        },
+        {
+        ROLLNO: parseFloat(1),
+        EXP1: parseFloat(20),
+        EXP2: parseFloat(20),
+        EXP3: parseFloat(20),
+        EXP4: parseFloat(20),
+        EXP5: parseFloat(20),
+        EXP6: parseFloat(20),
+        EXP7: parseFloat(20),
+        EXP8: parseFloat(20),
+        EXP9: parseFloat(20),
+        EXP10: parseFloat(20),
+        EXP11: parseFloat(20),
+        EXP12: parseFloat(20),
+        EXP13: parseFloat(20),
+        EXP14: parseFloat(20),
+        EXP15: parseFloat(20),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV14(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: parseFloat(0),
+        EXP1: document.getElementById("exp_no1").value,
+        EXP2: document.getElementById("exp_no2").value,
+        EXP3: document.getElementById("exp_no3").value,
+        EXP4: document.getElementById("exp_no4").value,
+        EXP5: document.getElementById("exp_no5").value,
+        EXP6: document.getElementById("exp_no6").value,
+        EXP7: document.getElementById("exp_no7").value,
+        EXP8: document.getElementById("exp_no8").value,
+        EXP9: document.getElementById("exp_no9").value,
+        EXP10: document.getElementById("exp_no10").value,
+        EXP11: document.getElementById("exp_no11").value,
+        EXP12: document.getElementById("exp_no12").value,
+        EXP13: document.getElementById("exp_no13").value,
+        EXP14: document.getElementById("exp_no14").value,
+        },
+        {
+        ROLLNO: parseFloat(1),
+        EXP1: parseFloat(20),
+        EXP2: parseFloat(20),
+        EXP3: parseFloat(20),
+        EXP4: parseFloat(20),
+        EXP5: parseFloat(20),
+        EXP6: parseFloat(20),
+        EXP7: parseFloat(20),
+        EXP8: parseFloat(20),
+        EXP9: parseFloat(20),
+        EXP10: parseFloat(20),
+        EXP11: parseFloat(20),
+        EXP12: parseFloat(20),
+        EXP13: parseFloat(20),
+        EXP14: parseFloat(20),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV13(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: parseFloat(0),
+        EXP1: document.getElementById("exp_no1").value,
+        EXP2: document.getElementById("exp_no2").value,
+        EXP3: document.getElementById("exp_no3").value,
+        EXP4: document.getElementById("exp_no4").value,
+        EXP5: document.getElementById("exp_no5").value,
+        EXP6: document.getElementById("exp_no6").value,
+        EXP7: document.getElementById("exp_no7").value,
+        EXP8: document.getElementById("exp_no8").value,
+        EXP9: document.getElementById("exp_no9").value,
+        EXP10: document.getElementById("exp_no10").value,
+        EXP11: document.getElementById("exp_no11").value,
+        EXP12: document.getElementById("exp_no12").value,
+        EXP13: document.getElementById("exp_no13").value,
+        },
+        {
+        ROLLNO: parseFloat(1),
+        EXP1: parseFloat(20),
+        EXP2: parseFloat(20),
+        EXP3: parseFloat(20),
+        EXP4: parseFloat(20),
+        EXP5: parseFloat(20),
+        EXP6: parseFloat(20),
+        EXP7: parseFloat(20),
+        EXP8: parseFloat(20),
+        EXP9: parseFloat(20),
+        EXP10: parseFloat(20),
+        EXP11: parseFloat(20),
+        EXP12: parseFloat(20),
+        EXP13: parseFloat(20),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV12(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: parseFloat(0),
+        EXP1: document.getElementById("exp_no1").value,
+        EXP2: document.getElementById("exp_no2").value,
+        EXP3: document.getElementById("exp_no3").value,
+        EXP4: document.getElementById("exp_no4").value,
+        EXP5: document.getElementById("exp_no5").value,
+        EXP6: document.getElementById("exp_no6").value,
+        EXP7: document.getElementById("exp_no7").value,
+        EXP8: document.getElementById("exp_no8").value,
+        EXP9: document.getElementById("exp_no9").value,
+        EXP10: document.getElementById("exp_no10").value,
+        EXP11: document.getElementById("exp_no11").value,
+        EXP12: document.getElementById("exp_no12").value,
+
+        },
+        {
+        ROLLNO: parseFloat(1),
+        EXP1: parseFloat(20),
+        EXP2: parseFloat(20),
+        EXP3: parseFloat(20),
+        EXP4: parseFloat(20),
+        EXP5: parseFloat(20),
+        EXP6: parseFloat(20),
+        EXP7: parseFloat(20),
+        EXP8: parseFloat(20),
+        EXP9: parseFloat(20),
+        EXP10: parseFloat(20),
+        EXP11: parseFloat(20),
+        EXP12: parseFloat(20),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV11(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: parseFloat(0),
+        EXP1: document.getElementById("exp_no1").value,
+        EXP2: document.getElementById("exp_no2").value,
+        EXP3: document.getElementById("exp_no3").value,
+        EXP4: document.getElementById("exp_no4").value,
+        EXP5: document.getElementById("exp_no5").value,
+        EXP6: document.getElementById("exp_no6").value,
+        EXP7: document.getElementById("exp_no7").value,
+        EXP8: document.getElementById("exp_no8").value,
+        EXP9: document.getElementById("exp_no9").value,
+        EXP10: document.getElementById("exp_no10").value,
+        EXP11: document.getElementById("exp_no11").value,
+        },
+        {
+        ROLLNO: parseFloat(1),
+        EXP1: parseFloat(20),
+        EXP2: parseFloat(20),
+        EXP3: parseFloat(20),
+        EXP4: parseFloat(20),
+        EXP5: parseFloat(20),
+        EXP6: parseFloat(20),
+        EXP7: parseFloat(20),
+        EXP8: parseFloat(20),
+        EXP9: parseFloat(20),
+        EXP10: parseFloat(20),
+        EXP11: parseFloat(20),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV10(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: parseFloat(0),
+        EXP1: document.getElementById("exp_no1").value,
+        EXP2: document.getElementById("exp_no2").value,
+        EXP3: document.getElementById("exp_no3").value,
+        EXP4: document.getElementById("exp_no4").value,
+        EXP5: document.getElementById("exp_no5").value,
+        EXP6: document.getElementById("exp_no6").value,
+        EXP7: document.getElementById("exp_no7").value,
+        EXP8: document.getElementById("exp_no8").value,
+        EXP9: document.getElementById("exp_no9").value,
+        EXP10: document.getElementById("exp_no10").value,
+        },
+        {
+        ROLLNO: parseFloat(1),
+        EXP1: parseFloat(20),
+        EXP2: parseFloat(20),
+        EXP3: parseFloat(20),
+        EXP4: parseFloat(20),
+        EXP5: parseFloat(20),
+        EXP6: parseFloat(20),
+        EXP7: parseFloat(20),
+        EXP8: parseFloat(20),
+        EXP9: parseFloat(20),
+        EXP10: parseFloat(20),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+ function convertArrayOfObjectsToCSV(args) {
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || ',';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function(item) {
+            ctr = 0;
+            keys.forEach(function(key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+function enterthemarks(){
+
+}
+</script>

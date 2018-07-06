@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Record marks-Entry</title>
+    <link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+
+</head>
+<body style="background-color: #e9e2e1">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid text-center">
+    <div id="style" >
+        <label><h4>ENTER THE RECORD MARKS</h4></label>
+     <div class="form-group">
+    &nbsp;
+    </div>
+ 
+	<table >
+		<div id="marktable" >
+			
+		</div>
+	</table>
+    </div>
+    <br>
+	<input type="submit" class="btn btn-primary" name="submit_cos" class="button" value="Submit Marks" onclick="selectthedownload()">
+	<a class="btn btn-primary" href="recordmarks.html">Next Student</a>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../js/roll.js"></script>
+
+
+<script type="text/javascript">
+    var k=0;
+	var filenam="recordmarks.csv";
+	var nums = sessionStorage.getItem("nums");
+	var table = document.getElementById("marktable");
+    var tr = document.createElement('tr');   
+    var td = document.createElement('td');
+    var td1 = document.createElement('td');
+    var input = document.createElement("input");
+    input.value = "RollNO";
+    input.disabled = "true";
+    td.setAttribute("style","width:150px;");
+    input.setAttribute("style","width:inherit;");
+    td.appendChild(input);
+    var input1 = document.createElement("input");
+    input1.value = "Name";
+    input1.disabled = "true";
+    td1.setAttribute("style","width:150px;");
+    input1.setAttribute("style","width:inherit;");
+    td1.appendChild(input1);
+    tr.appendChild(td);
+    tr.appendChild(td1);
+    for(var j = 0 ; j < nums ; j ++){
+        var td = document.createElement('td');
+        var input = document.createElement("input");
+        input.value = "Expt"+(j+1);
+        input.disabled = "true";
+        td.setAttribute("style","width:70px;");
+        input.setAttribute("style","width:inherit;");
+        td.appendChild(input);
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+
+	for (var i = 0; i < 5; i++) {
+	    var tr = document.createElement('tr');   
+
+	    var td = document.createElement('td');
+        var td1 = document.createElement('td');
+		var input = document.createElement("input");
+        var input1 = document.createElement("input");
+		input.id=(i+1)+"rollno";
+        input1.id=(i+1)+"name";
+        td.setAttribute("style","width:150px;");
+        input.setAttribute("style","width:inherit;");
+        td1.setAttribute("style","width:150px;");
+        input1.setAttribute("style","width:inherit;");
+		tr.appendChild(td);
+        tr.appendChild(td1);
+	    td.appendChild(input);
+        td1.appendChild(input1);
+        console.log(input.id);
+        console.log(input1.id);
+		for(var j = 0; j < nums; j++){
+			var td = document.createElement('td');
+			var input = document.createElement("input");
+			input.id=(i+1)+"markofexp"+(j+1);
+            td.setAttribute("style","width:70px;");
+            input.setAttribute("style","width:inherit;");
+		    td.appendChild(input);
+		    tr.appendChild(td);
+		    console.log(input.id);
+	}
+    table.appendChild(tr);
+}
+
+document.getElementById("1rollno").addEventListener('keyup',function addname(){
+    var input = document.getElementById("1rollno").value;
+    for(var i=0; i<roll.length; i++){
+        if(roll[i]["Roll"] == input){
+            document.getElementById("1name").value = roll[i]["Name"];
+            break;
+        }
+    }
+});
+document.getElementById("2rollno").addEventListener('keyup',function addname(){
+    var input = document.getElementById("2rollno").value;
+    for(var i=0; i<roll.length; i++){
+        if(roll[i]["Roll"] == input){
+            document.getElementById("2name").value = roll[i]["Name"];
+            break;
+        }
+    }
+});
+document.getElementById("3rollno").addEventListener('keyup',function addname(){
+    var input = document.getElementById("3rollno").value;
+    for(var i=0; i<roll.length; i++){
+        if(roll[i]["Roll"] == input){
+            document.getElementById("3name").value = roll[i]["Name"];
+            break;
+        }
+    }
+});
+document.getElementById("4rollno").addEventListener('keyup',function addname(){
+    var input = document.getElementById("4rollno").value;
+    for(var i=0; i<roll.length; i++){
+        if(roll[i]["Roll"] == input){
+            document.getElementById("4name").value = roll[i]["Name"];
+            break;
+        }
+    }
+});
+document.getElementById("5rollno").addEventListener('keyup',function addname(){
+    var input = document.getElementById("5rollno").value;
+    for(var i=0; i<roll.length; i++){
+        if(roll[i]["Roll"] == input){
+            document.getElementById("5name").value = roll[i]["Name"];
+            break;
+        }
+    }
+});
+function selectthedownload()
+{
+	for(k=0;k<5;k++){
+	    if(nums==15){
+	        downloadCSV15({ filename: filenam });
+	    }
+	    if(nums==14){
+	        downloadCSV14({ filename: filenam });
+	    }
+	    if(nums==13){
+	        downloadCSV13({ filename: filenam });
+	    }
+	    if(nums==12){
+	        downloadCSV12({ filename: filenam });
+	    }
+	    if(nums==11){
+	        downloadCSV11({ filename: filenam });
+	    }
+	    if(nums==10){
+	        downloadCSV10({ filename: filenam });
+	    }
+	}
+}
+function downloadCSV15(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: document.getElementById((k+1)+"rollno").value,
+        NAME: document.getElementById((k+1)+"name").value,
+        EXP1: document.getElementById((k+1)+"markofexp1").value,
+        EXP2: document.getElementById((k+1)+"markofexp2").value,
+        EXP3: document.getElementById((k+1)+"markofexp3").value,
+        EXP4: document.getElementById((k+1)+"markofexp4").value,
+        EXP5: document.getElementById((k+1)+"markofexp5").value,
+        EXP6: document.getElementById((k+1)+"markofexp6").value,
+        EXP7: document.getElementById((k+1)+"markofexp7").value,
+        EXP8: document.getElementById((k+1)+"markofexp8").value,
+        EXP9: document.getElementById((k+1)+"markofexp9").value,
+        EXP10: document.getElementById((k+1)+"markofexp10").value,
+        EXP11: document.getElementById((k+1)+"markofexp11").value,
+        EXP12: document.getElementById((k+1)+"markofexp12").value,
+        EXP13: document.getElementById((k+1)+"markofexp13").value,
+        EXP14: document.getElementById((k+1)+"markofexp14").value,
+        EXP15: document.getElementById((k+1)+"markofexp15").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV14(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: document.getElementById((k+1)+"rollno").value,
+        NAME: document.getElementById((k+1)+"name").value,
+        EXP1: document.getElementById((k+1)+"markofexp1").value,
+        EXP2: document.getElementById((k+1)+"markofexp2").value,
+        EXP3: document.getElementById((k+1)+"markofexp3").value,
+        EXP4: document.getElementById((k+1)+"markofexp4").value,
+        EXP5: document.getElementById((k+1)+"markofexp5").value,
+        EXP6: document.getElementById((k+1)+"markofexp6").value,
+        EXP7: document.getElementById((k+1)+"markofexp7").value,
+        EXP8: document.getElementById((k+1)+"markofexp8").value,
+        EXP9: document.getElementById((k+1)+"markofexp9").value,
+        EXP10: document.getElementById((k+1)+"markofexp10").value,
+        EXP11: document.getElementById((k+1)+"markofexp11").value,
+        EXP12: document.getElementById((k+1)+"markofexp12").value,
+        EXP13: document.getElementById((k+1)+"markofexp13").value,
+        EXP14: document.getElementById((k+1)+"markofexp14").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV13(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+        {
+        ROLLNO: document.getElementById((k+1)+"rollno").value,
+        NAME: document.getElementById((k+1)+"name").value,
+        EXP1: document.getElementById((k+1)+"markofexp1").value,
+        EXP2: document.getElementById((k+1)+"markofexp2").value,
+        EXP3: document.getElementById((k+1)+"markofexp3").value,
+        EXP4: document.getElementById((k+1)+"markofexp4").value,
+        EXP5: document.getElementById((k+1)+"markofexp5").value,
+        EXP6: document.getElementById((k+1)+"markofexp6").value,
+        EXP7: document.getElementById((k+1)+"markofexp7").value,
+        EXP8: document.getElementById((k+1)+"markofexp8").value,
+        EXP9: document.getElementById((k+1)+"markofexp9").value,
+        EXP10: document.getElementById((k+1)+"markofexp10").value,
+        EXP11: document.getElementById((k+1)+"markofexp11").value,
+        EXP12: document.getElementById((k+1)+"markofexp12").value,
+        EXP13: document.getElementById((k+1)+"markofexp13").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV12(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+		 {
+        ROLLNO: document.getElementById((k+1)+"rollno").value,
+        NAME: document.getElementById((k+1)+"name").value,
+        EXP1: document.getElementById((k+1)+"markofexp1").value,
+        EXP2: document.getElementById((k+1)+"markofexp2").value,
+        EXP3: document.getElementById((k+1)+"markofexp3").value,
+        EXP4: document.getElementById((k+1)+"markofexp4").value,
+        EXP5: document.getElementById((k+1)+"markofexp5").value,
+        EXP6: document.getElementById((k+1)+"markofexp6").value,
+        EXP7: document.getElementById((k+1)+"markofexp7").value,
+        EXP8: document.getElementById((k+1)+"markofexp8").value,
+        EXP9: document.getElementById((k+1)+"markofexp9").value,
+        EXP10: document.getElementById((k+1)+"markofexp10").value,
+        EXP11: document.getElementById((k+1)+"markofexp11").value,
+        EXP12: document.getElementById((k+1)+"markofexp12").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV11(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+       {
+        ROLLNO: document.getElementById((k+1)+"rollno").value,
+        NAME: document.getElementById((k+1)+"name").value,
+        EXP1: document.getElementById((k+1)+"markofexp1").value,
+        EXP2: document.getElementById((k+1)+"markofexp2").value,
+        EXP3: document.getElementById((k+1)+"markofexp3").value,
+        EXP4: document.getElementById((k+1)+"markofexp4").value,
+        EXP5: document.getElementById((k+1)+"markofexp5").value,
+        EXP6: document.getElementById((k+1)+"markofexp6").value,
+        EXP7: document.getElementById((k+1)+"markofexp7").value,
+        EXP8: document.getElementById((k+1)+"markofexp8").value,
+        EXP9: document.getElementById((k+1)+"markofexp9").value,
+        EXP10: document.getElementById((k+1)+"markofexp10").value,
+        EXP11: document.getElementById((k+1)+"markofexp11").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+function downloadCSV10(args) {
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [
+       {
+        ROLLNO: document.getElementById((k+1)+"rollno").value,
+        NAME: document.getElementById((k+1)+"name").value,
+        EXP1: document.getElementById((k+1)+"markofexp1").value,
+        EXP2: document.getElementById((k+1)+"markofexp2").value,
+        EXP3: document.getElementById((k+1)+"markofexp3").value,
+        EXP4: document.getElementById((k+1)+"markofexp4").value,
+        EXP5: document.getElementById((k+1)+"markofexp5").value,
+        EXP6: document.getElementById((k+1)+"markofexp6").value,
+        EXP7: document.getElementById((k+1)+"markofexp7").value,
+        EXP8: document.getElementById((k+1)+"markofexp8").value,
+        EXP9: document.getElementById((k+1)+"markofexp9").value,
+        EXP10: document.getElementById((k+1)+"markofexp10").value,
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+ function convertArrayOfObjectsToCSV(args) {
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || ',';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function(item) {
+            ctr = 0;
+            keys.forEach(function(key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+</script>

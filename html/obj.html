@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                <link rel="stylesheet" href="../bs-css/bootstrap.min.css">
+                <title>Objective Mark-Entry</title>
+    </head>
+    <body style="background-color: #e9e2e1">
+        <nav class="navbar navbar-expand navbar-dark" style="background-color: #6C648B;">
+      <a class="navbar-brand" href="#"><h4>SREC OBE</h4></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        <li>
+            <a class="nav-link" href="./index.html" class="btn btn-outline-success my-2 my-sm-0"><h5>HOME</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="./upload_first.html" class="btn btn-outline-success my-2 my-sm-0"><h5>UPLOAD RESULTS</h5></a>
+        </li>
+        <li>
+            <a id="results" class="nav-link" href="../index.html" class="btn btn-outline-success my-2 my-sm-0"><h5 style="color: red;">EXIT</h5></a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+        <noscript>Your browser does not support javaScript!</noscript>
+
+        <h1 class="text-center">Online Objective Analysis</h1>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                    <div class="text-center">   
+                            <h5>TOTAL NUMBER OF STUDENTS</h5>
+                    </div>
+            </div>
+            <div class="form-group col-md-6">
+                    <div class="input-group mb-3">
+                            <input type="number" id="nostud" name="nostud" class="form-control">
+                            <input type="button" name="nostudclick" onclick="nostudfunc();" class="btn btn-primary" value="Submit">
+                    </div>
+            </div>
+        </div>  
+        <div id="style">
+         <div id="side" class="alert alert-dark text-center">
+        <label id="lhead"><h4>SELECT THE CO's ADDRESSED</h4></label><br>
+            <label><input type='checkbox' onclick='handleClick1();' id="co1click">CO1</label>
+            <label><input type='checkbox' onclick='handleClick2();' id="co2click">CO2</label>
+            <label><input type='checkbox' onclick='handleClick3();' id="co3click">CO3</label>
+            <label><input type='checkbox' onclick='handleClick4();' id="co4click">CO4</label>
+            <label><input type='checkbox' onclick='handleClick5();' id="co5click">CO5</label>
+            <label><input type='checkbox' onclick='handleClick6();' id="co6click">CO6</label>
+            <label><input type='checkbox' onclick='handleClick7();' id="co7click">CO7</label>
+        </div>
+            <div id="inner">
+        <form id="OBJ" class="text-center">
+        <div class="form-row">
+            <label class="form-group col-md-4">MAXIMUM MARK</label>
+            <label class="form-group col-md-4">MAXIMUM MARK</label>
+            <label class="form-group col-md-4">MAXIMUM MARK</label>
+        </div>
+        <div class="form-row">
+            <label class="form-group col-md-4"><div id=co1m>CO1 MAXIMUM MARK <input name="co1maxmark" type="number"  id="co1maxmark" class="form-control" /></div></label>
+            <label class="form-group col-md-4"><div id=co2m>CO2 MAXIMUM MARK <input name="co2maxmark" type="number"  id="co2maxmark" class="form-control"/></div></label>
+            <label class="form-group col-md-4"><div id=co3m>CO3 MAXIMUM MARK <input name="co3maxmark" type="number"  id="co3maxmark" class="form-control"/></div></label>
+        </div>
+        <div class="form-row">
+           <label class="form-group col-md-4"> <div id=co4m>CO4 MAXIMUM MARK <input name="co4maxmark" type="number"  id="co4maxmark" class="form-control"/></div></label>
+            <label class="form-group col-md-4"><div id=co5m>CO5 MAXIMUM MARK <input name="co5maxmark" type="number"  id="co5maxmark" class="form-control"/></div></label>
+            <label class="form-group col-md-4"><div id=co6m>CO6 MAXIMUM MARK <input name="co6maxmark" type="number"  id="co6maxmark" class="form-control"/></div></label>
+        </div>
+        <div class="form-row">
+            <label class="form-group col-md-4"><div id=co7m>CO7 MAXIMUM MARK <input name="co7maxmark" type="number"  id="co7maxmark" class="form-control"/></div></label><br>
+        </div>
+            <a href='#' onclick='selectthefilenam()'><input type="button" value="Submit" id="show1" class="btn btn-primary" />
+</a><br><br>
+        <input type="button" value="Enter student marks" onclick="enterobjmarks()" id="show2" class="btn btn-primary" />
+            </form>
+            <div class="form-group">
+    &nbsp;
+    </div>
+
+        <form id="stuobj" class="alert alert-dark text-center">        
+    <div class="form-row">
+    <label class="form-group col-md-6">ROLL NO <input name="rollno" type="number" id="objrollno" class="form-control" class="rollno" placeholder="Enter the Roll-No" title="Register-No" required /></label>
+     <label class="form-group col-md-6">NAME <input name="searchTxt" type="text"  id="objname" placeholder="Enter the name" label="Name"  class="form-control" class="searchField" style="text-transform:capitalize" required title="Name" /></label>
+ </div>
+    <br><br>
+        <div class="form-row">
+            <label class="form-group col-md-4"><div id=co1a>CO1: Mark obtained <input class="form-control" name="co1mark" type="number"  id="co1mark"/></div></label>
+            <label class="form-group col-md-4"><div id=co2a>CO2: Mark obtained <input class="form-control" name="co2mark" type="number"  id="co2mark"/></div></label>
+            <label class="form-group col-md-4"><div id=co3a>CO3: Mark obtained <input class="form-control" name="co3mark" type="number"  id="co3mark"/></div></label>
+        </div>
+        <div class="form-row">
+            <label class="form-group col-md-4"><div id=co4a>CO4: Mark obtained <input class="form-control" name="co4mark" type="number"  id="co4mark"/></div></label>
+            <label class="form-group col-md-4"><div id=co5a>CO5: Mark obtained <input class="form-control" name="co5mark" type="number"  id="co5mark"/></div></label>
+            <label class="form-group col-md-4"><div id=co6a>CO6: Mark obtained <input class="form-control" name="co6mark" type="number"  id="co6mark"/></div></label>
+        </div>
+        <div class="form-row">
+            <label class="form-group col-md-4"><div id=co7a>CO7: Mark obtained <input class="form-control" name="co7mark" type="number"  id="co7mark"/></div></label>
+        </div>
+        <div class="alert alert-danger" id="numberOfStudents">
+                <label>NUMBER OF ENTRIES REMAINING</label>
+                <b><span id="spandata"></span></b>
+        </div>
+    <br><a href='#' onclick='selectanotherfilenam()' id="show4" class="btn btn-primary">Submit</a><br><br>
+    <input type="reset" onclick="reset()" value="Next student" id="show3"  class="btn btn-primary" /><br><br>
+        <a id="phpa" onclick="window.confirm('Are you sure you want to proceed');" href="../php/objective.php" class="btn btn-success">Done</a>
+            </form>
+        </div>
+        </div>
+    </div>
+    </body>
+</html>
+
+
+
+<script type="text/javascript" src="../js/roll.js"></script>
+<script>
+    document.getElementById("phpa").style.display = "none";
+    document.getElementById("OBJ").style.visibility="hidden";
+    document.getElementById("stuobj").style.visibility="hidden";
+    document.getElementById("objrollno").addEventListener('keyup',function addname(){
+        var input = document.getElementById("objrollno").value;
+        for(var i=0; i<roll.length; i++){
+            if(roll[i]["Roll"] == input){
+                document.getElementById("objname").value = roll[i]["Name"];
+                break;
+            }
+        }
+    });
+    var nam="obj";
+    var subject=localStorage.getItem('subject');
+    var classnam=localStorage.getItem('class');
+    var year=localStorage.getItem('year');
+    var filenam="aaa"+"_"+subject+"_"+classnam+"_"+year+"_"+nam+".csv";
+    var anotherfilenam="ans"+"_"+subject+"_"+classnam+"_"+year+"_"+nam+".csv";
+    function nostudfunc(){
+            var value = document.getElementById("nostud").value;
+            localStorage.setItem("nostud",value);
+        }
+    function selectthefilenam()
+    {
+        download1stCSV({ filename: filenam });
+    }
+    function selectanotherfilenam()
+    {
+        var studCount = localStorage.getItem("nostud");
+        document.getElementById("spandata").innerHTML = studCount-1;
+        localStorage.setItem("nostud",--studCount);             
+        if(!studCount){
+            document.getElementById("phpa").style.display = "block";
+        }
+        download2ndCSV({ filename: anotherfilenam });
+    }
+      function handleClick1()
+    {
+            if(document.getElementById("co1click").checked)
+        {
+            document.getElementById("co1m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co1m").style.visibility="hidden";
+        }
+
+        
+    }
+    function handleClick2()
+    {
+        
+            if(document.getElementById("co2click").checked)
+        {
+            document.getElementById("co2m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        var studCount = localStorage.getItem("nostud");
+                document.getElementById("spandata").innerHTML = studCount;
+        }
+        else
+        {
+           document.getElementById("co2m").style.visibility="hidden";
+        }
+
+    }
+    function handleClick3()
+    {
+            if(document.getElementById("co3click").checked)
+        {
+            document.getElementById("co3m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co3m").style.visibility="hidden";
+        }
+
+    }
+    function handleClick4()
+    {
+            if(document.getElementById("co4click").checked)
+        {
+            document.getElementById("co4m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co4m").style.visibility="hidden";
+        }
+
+    }
+    function handleClick5()
+    {
+            if(document.getElementById("co5click").checked)
+        {
+            document.getElementById("co5m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co5m").style.visibility="hidden";
+        }
+}
+    function handleClick6()
+    {
+            if(document.getElementById("co6click").checked)
+        {
+            document.getElementById("co6m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co6m").style.visibility="hidden";
+        }
+}
+    function handleClick7()
+    {
+            if(document.getElementById("co7click").checked)
+        {
+            document.getElementById("co7m").style.visibility="visible";
+        document.getElementById("show1").style.visibility="visible";
+        document.getElementById("show2").style.visibility="visible";
+        }
+        else
+        {
+           document.getElementById("co7m").style.visibility="hidden";
+        }
+
+    }
+    function enterobjmarks()
+    {
+        document.getElementById("stuobj").style.visibility="visible";
+        document.getElementById("co1a").style.visibility="hidden";
+         document.getElementById("co2a").style.visibility="hidden";
+         document.getElementById("co3a").style.visibility="hidden";
+         document.getElementById("co4a").style.visibility="hidden";
+         document.getElementById("co5a").style.visibility="hidden";
+         document.getElementById("co6a").style.visibility="hidden";
+         document.getElementById("co7a").style.visibility="hidden";
+        var co1clickvalue=document.getElementById("co1maxmark").value;
+        if(co1clickvalue>0)
+            document.getElementById("co1a").style.visibility="visible";
+        var co2clickvalue=document.getElementById("co2maxmark").value;
+        if(co2clickvalue>0)
+            document.getElementById("co2a").style.visibility="visible";
+        var co3clickvalue=document.getElementById("co3maxmark").value;
+        if(co3clickvalue>0)
+            document.getElementById("co3a").style.visibility="visible";
+        var co4clickvalue=document.getElementById("co4maxmark").value;
+        if(co4clickvalue>0)
+            document.getElementById("co4a").style.visibility="visible";
+        var co5clickvalue=document.getElementById("co5maxmark").value;
+        if(co5clickvalue>0)
+            document.getElementById("co5a").style.visibility="visible";
+        var co6clickvalue=document.getElementById("co6maxmark").value;
+        if(co6clickvalue>0)
+            document.getElementById("co6a").style.visibility="visible";
+        var co7clickvalue=document.getElementById("co7maxmark").value;
+        if(co7clickvalue>0)
+            document.getElementById("co7a").style.visibility="visible";
+
+    }
+    function download1stCSV(args) {  
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [  
+        {
+            CO1: parseFloat(document.getElementById("co1maxmark").value),
+            CO2: parseFloat(document.getElementById("co2maxmark").value),
+            CO3: parseFloat(document.getElementById("co3maxmark").value),
+            CO4: parseFloat(document.getElementById("co4maxmark").value),
+            CO5: parseFloat(document.getElementById("co5maxmark").value),
+            CO6: parseFloat(document.getElementById("co6maxmark").value),
+            CO7: parseFloat(document.getElementById("co7maxmark").value),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+      function download2ndCSV(args) {  
+        var data, filename, link;
+        var csv = convertArrayOfObjectsToCSV({
+            data: [  
+        {
+            NAME: (document.getElementById("objname").value),
+            ROLLNO: (document.getElementById("objrollno").value),
+            CO1: parseFloat(document.getElementById("co1mark").value),
+            CO2: parseFloat(document.getElementById("co2mark").value),
+            CO3: parseFloat(document.getElementById("co3mark").value),
+            CO4: parseFloat(document.getElementById("co4mark").value),
+            CO5: parseFloat(document.getElementById("co5mark").value),
+            CO6: parseFloat(document.getElementById("co6mark").value),
+            CO7: parseFloat(document.getElementById("co7mark").value),
+        },
+    ]
+        });
+        if (csv == null) return;
+
+        filename = args.filename || 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+    }
+function convertArrayOfObjectsToCSV(args) {  
+        var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+        data = args.data || null;
+        if (data == null || !data.length) {
+            return null;
+        }
+
+        columnDelimiter = args.columnDelimiter || ',';
+        lineDelimiter = args.lineDelimiter || '\n';
+
+        keys = Object.keys(data[0]);
+
+        result = '';
+        result += keys.join(columnDelimiter);
+        result += lineDelimiter;
+
+        data.forEach(function(item) {
+            ctr = 0;
+            keys.forEach(function(key) {
+                if (ctr > 0) result += columnDelimiter;
+
+                result += item[key];
+                ctr++;
+            });
+            result += lineDelimiter;
+        });
+
+        return result;
+    }
+  
+  
+</script>
